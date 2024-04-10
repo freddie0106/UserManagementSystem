@@ -32,13 +32,15 @@ class AdminController extends Controller
 
         $student->assignRole('学生');
 
-        return back()->with('success', '学生添加成功');
+        //return back()->with('success', '学生添加成功');
+        return redirect()->route('admin.students')->with('success', '学生添加成功');
     }
 
     public function destroy(User $student)
     {
         $student->delete();
-        return back()->with('success', '学生删除成功');
+        //return back()->with('success', '学生删除成功');
+        return redirect()->route('admin.students')->with('success', '学生删除成功');
     }
 
     public function manageStudents()

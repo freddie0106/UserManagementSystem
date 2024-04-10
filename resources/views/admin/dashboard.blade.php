@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>管理员仪表板</title>
+    <title>标题系统仪表盘</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -22,45 +22,70 @@
             margin-bottom: 20px;
         }
 
-        .content {
-            display: flex;
-            justify-content: space-around;
-            padding-top: 20px;
+        .title {
+            font-size: 24px;
+            margin: 0 auto;
         }
 
         .button {
-            background-color: #c0c0c0;
+            background-color: #dc3545;
             border: none;
-            color: #343a40;
-            padding: 12px 20px;
+            color: white;
+            padding: 10px 15px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            font-size: 20px;
-            margin: 20px 10px;
+            font-size: 16px;
+            margin-right: 10px;
             cursor: pointer;
             border-radius: 5px;
             transition: background-color 0.3s;
         }
 
-        .button:hover {
-            background-color: #b0b0b0;
+        .button.logout {
+            margin-right: 0;
         }
 
-        .title {
-            margin: 0 auto;
-            font-family: '黑体', sans-serif;
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
         }
 
-        .logout {
-            background-color: #dc3545;
+        .section {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            width: 45%;
+            margin: 10px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .section .view-button {
+            background-color: #007bff;
             color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .section .view-button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
 <div class="header">
-    <h1 class="title">管理员仪表板</h1>
+    <h1 class="title">管理员仪表盘</h1>
     <form action="{{ route('logout') }}" method="POST">
         @csrf
         <button class="button logout" type="submit">登出</button>
@@ -68,8 +93,14 @@
 </div>
 
 <div class="content">
-    <button onclick="window.location.href='{{ route('admin.students') }}'" class="button">学生信息</button>
-    <button onclick="window.location.href='{{ route('logs.index') }}'" class="button">系统日志</button>
+    <div class="section">
+        <h2>学生信息</h2>
+        <button onclick="window.location.href='{{ route('admin.students') }}'" class="button view-button">查看</button>
+    </div>
+    <div class="section">
+        <h2>系统日志</h2>
+        <button onclick="window.location.href='{{ route('logs.index') }}'" class="button view-button">查看</button>
+    </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

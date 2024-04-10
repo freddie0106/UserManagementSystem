@@ -28,7 +28,8 @@ class LogRequests
         ];
 
         // JSON格式化输出
-        Log::info("Request Logged:\n" . json_encode($requestData, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+        //Log::info("Request Logged:\n" . json_encode($requestData, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+        Log::info("Request Logged: " . json_encode($requestData, JSON_UNESCAPED_SLASHES));
 
         return $next($request);
     }

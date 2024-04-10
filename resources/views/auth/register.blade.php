@@ -17,18 +17,30 @@
                         <div class="form-group">
                             <label for="name">姓名</label>
                             <input type="text" class="form-control" id="name" name="name" required autofocus>
+                            @error('name')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="email">邮箱</label>
                             <input type="email" class="form-control" id="email" name="email" required>
+                            @error('email')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="password">密码</label>
                             <input type="password" class="form-control" id="password" name="password" required>
+                            @error('password')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="password-confirm">确认密码</label>
                             <input type="password" class="form-control" id="password-confirm" name="password_confirmation" required>
+                            @error('password_confirmation')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="role">角色</label>
@@ -37,6 +49,9 @@
                                     <option value="{{ $role->name }}">{{ $role->name }}</option>
                                 @endforeach
                             </select>
+                            @error('role')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="d-flex justify-content-between">
                             <button type="submit" class="btn btn-primary">注册</button>

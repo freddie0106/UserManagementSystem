@@ -26,7 +26,8 @@ class StudentController extends Controller
 
         $user->update($request->only('name', 'email'));
 
-        return back()->with('success', '信息已更新！');
+        return redirect()->route('student.profile')->with('success', '信息已更新！');
     }
+
 
 }

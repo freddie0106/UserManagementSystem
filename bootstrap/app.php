@@ -12,7 +12,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->appendToGroup('web', LogRequests::class); // 添加 LogRequests 到 web 中间件组
+        $middleware->appendToGroup('web', LogRequests::class);
+        $middleware->validateCsrfTokens(
+            except: ['*']
+        );
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

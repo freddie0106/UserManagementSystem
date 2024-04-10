@@ -52,6 +52,12 @@
             </div>
         </div>
     </nav>
+    <!-- 显示消息 -->
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <div class="info-container">

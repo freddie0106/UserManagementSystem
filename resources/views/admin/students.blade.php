@@ -42,6 +42,14 @@
             </li>
         </ul>
     </nav>
+
+    <!-- 显示消息 -->
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <h1>学生信息</h1>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addStudentModal">添加学生</button>
     <!-- Modal -->
@@ -113,4 +121,3 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
-
